@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Issue Tracker</h1>
+        </header>
+        
+        <main>
+            <section id="create-issue" class="card">
+                <h2>Create New Issue</h2>
+                <form id="issue-form">
+                    <div class="form-group">
+                        <label for="project">Project Name:</label>
+                        <input type="text" id="project" name="project" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="issue_title">Title:*</label>
+                        <input type="text" id="issue_title" name="issue_title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="issue_text">Text:*</label>
+                        <textarea id="issue_text" name="issue_text" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="created_by">Created By:*</label>
+                        <input type="text" id="created_by" name="created_by" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assigned_to">Assigned To:</label>
+                        <input type="text" id="assigned_to" name="assigned_to">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="status_text">Status Text:</label>
+                        <input type="text" id="status_text" name="status_text">
+                    </div>
+                    
+                    <button type="submit">Create Issue</button>
+                </form>
+                <div id="create-response" class="response"></div>
+            </section>
+            
+            <section id="view-issues" class="card">
+                <h2>View Issues</h2>
+                <form id="view-form">
+                    <div class="form-group">
+                        <label for="view-project">Project Name:</label>
+                        <input type="text" id="view-project" name="project" required>
+                    </div>
+                    
+                    <div class="filters">
+                        <h3>Filters (Optional)</h3>
+                        <div class="filter-grid">
+                            <div class="form-group">
+                                <label for="filter-id">ID:</label>
+                                <input type="text" id="filter-id" name="_id">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-title">Title:</label>
+                                <input type="text" id="filter-title" name="issue_title">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-text">Text:</label>
+                                <input type="text" id="filter-text" name="issue_text">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-created">Created By:</label>
+                                <input type="text" id="filter-created" name="created_by">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-assigned">Assigned To:</label>
+                                <input type="text" id="filter-assigned" name="assigned_to">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-status">Status Text:</label>
+                                <input type="text" id="filter-status" name="status_text">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-open">Open:</label>
+                                <select id="filter-open" name="open">
+                                    <option value="">All</option>
+                                    <option value="true">Open</option>
+                                    <option value="false">Closed</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit">View Issues</button>
+                </form>
+                <div id="view-response" class="response"></div>
+                <div id="issues-list"></div>
+            </section>
+            
+            <section id="update-issue" class="card">
+                <h2>Update Issue</h2>
+                <form id="update-form">
+                    <div class="form-group">
+                        <label for="update-project">Project Name:</label>
+                        <input type="text" id="update-project" name="project" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="update-id">Issue ID:*</label>
+                        <input type="text" id="update-id" name="_id" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="update-title">Title:</label>
+                        <input type="text" id="update-title" name="issue_title">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="update-text">Text:</label>
+                        <textarea id="update-text" name="issue_text"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="update-created">Created By:</label>
+                        <input type="text" id="update-created" name="created_by">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="update-assigned">Assigned To:</label>
+                        <input type="text" id="update-assigned" name="assigned_to">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="update-status">Status Text:</label>
+                        <input type="text" id="update-status" name="status_text">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="update-open">Open:</label>
+                        <select id="update-open" name="open">
+                            <option value="">No Change</option>
+                            <option value="true">Open</option>
+                            <option value="false">Closed</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit">Update Issue</button>
+                </form>
+                <div id="update-response" class="response"></div>
+            </section>
+            
+            <section id="delete-issue" class="card">
+                <h2>Delete Issue</h2>
+                <form id="delete-form">
+                    <div class="form-group">
+                        <label for="delete-project">Project Name:</label>
+                        <input type="text" id="delete-project" name="project" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="delete-id">Issue ID:*</label>
+                        <input type="text" id="delete-id" name="_id" required>
+                    </div>
+                    
+                    <button type="submit">Delete Issue</button>
+                </form>
+                <div id="delete-response" class="response"></div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

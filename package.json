@@ -1,0 +1,25 @@
+{
+  "name": "issue-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/2_functional-tests.js --timeout 5000 --exit",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mongodb": "^6.19.0"
+  },
+  "devDependencies": {
+    "chai": "^6.0.1",
+    "chai-http": "^5.1.2",
+    "mocha": "^11.7.2"
+  }
+}
